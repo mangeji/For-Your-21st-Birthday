@@ -101,9 +101,10 @@
 
         .music-card {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-columns: minmax(0, 1fr);
             gap: 12px 24px;
             align-items: center;
+            min-width: 0;
             padding: 20px 24px;
             border: 1px solid rgba(231, 208, 158, .2);
             border-radius: 18px;
@@ -126,18 +127,22 @@
         }
 
         .music-player {
-            display: block;
+            position: absolute;
+            inset: 0;
             width: 100%;
-            aspect-ratio: 16 / 9;
-            height: auto;
-            margin-top: 16px;
+            height: 100%;
             border: 0;
-            border-radius: 12px;
             background: #101813;
         }
 
         .music-player-wrap {
-            grid-column: 1 / -1;
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            margin-top: 4px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
         }
 
         .birthday-layout {
@@ -382,7 +387,13 @@
                 <h2>A song for your special day</h2>
             </div>
             <div class="music-player-wrap">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mVRAGW3TggU?si=ldLJ6CELfThBsUTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe
+                    class="music-player"
+                    src="https://www.youtube-nocookie.com/embed/mVRAGW3TggU?si=ldLJ6CELfThBsUTU"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
             </div>
         </section>
 
