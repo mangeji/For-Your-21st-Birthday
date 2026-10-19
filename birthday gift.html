@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#18251d">
-    <title>Happiest Birthday, Luis!</title>
+    <title>Happiest Birthday, Vasco!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -376,8 +376,8 @@
     <section class="welcome" id="welcome" aria-label="Open birthday surprise">
         <div class="welcome-content">
             <p class="eyebrow">A little birthday surprise</p>
-            <h1>Happiest birthday, Luis!</h1>
-            <p class="welcome-hint">Click anywhere to open</p>
+            <h1>Happiest birthday, Vasco!</h1>
+            <p class="welcome-hint">Click anywhere to continue</p>
         </div>
     </section>
 
@@ -410,7 +410,7 @@
             <div class="message-panel">
                 <p class="eyebrow">For my favorite person</p>
                 <h2>A note for you</h2>
-                <textarea aria-label="Birthday message"> Happy birthday, baba! I hope you have a wonderful day filled with love, laughter, and all the things that make you happy. You deserve the best on your special day and always.
+                <textarea aria-label="Birthday message"> Happy birthday, baba! You deserve the best on your special day and always; so my first wish for you is that you have a wonderful birthday and a year filled with happiness, love, and success. I hope this year brings you closer to your dreams and that you continue to grow and thrive in all aspects of your life. May your birthday be as amazing as you are, and may all your wishes come true!
                 </textarea>
             </div>
         </section>
@@ -418,15 +418,9 @@
 
     <script>
         const welcome = document.getElementById("welcome");
-        const birthdayCard = document.getElementById("birthday-card");
 
         function openBirthdayCard() {
-            welcome.classList.add("is-hidden");
-            birthdayCard.classList.add("is-open");
-            birthdayCard.setAttribute("tabindex", "-1");
-            birthdayCard.focus({ preventScroll: true });
-            welcome.removeEventListener("click", openBirthdayCard);
-            welcome.removeEventListener("keydown", handleWelcomeKeydown);
+            window.location.assign("birthday-page-2.html");
         }
 
         function handleWelcomeKeydown(event) {
