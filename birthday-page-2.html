@@ -281,29 +281,26 @@
             line-height: 1;
         }
 
-        textarea {
+        .message-text {
             display: block;
             width: 100%;
             min-height: 225px;
-            resize: none;
+            margin: 0;
             padding: 18px 19px;
             border: 1px solid rgba(231, 208, 158, .25);
             border-radius: 14px;
-            outline: none;
             background: rgba(255, 248, 233, .055);
             color: #fff8e9;
             font-size: .98rem;
             line-height: 1.8;
-            transition: border-color .2s ease, box-shadow .2s ease;
         }
 
-        textarea::placeholder {
-            color: rgba(255, 248, 233, .45);
+        .message-text p {
+            margin: 0;
         }
 
-        textarea:focus {
-            border-color: rgba(231, 208, 158, .7);
-            box-shadow: 0 0 0 3px rgba(231, 208, 158, .1);
+        .message-text p + p {
+            margin-top: 1em;
         }
 
         .message-hint {
@@ -382,7 +379,7 @@
                 padding: 8px 4px 20px;
             }
 
-            textarea {
+            .message-text {
                 min-height: 190px;
             }
         }
@@ -426,8 +423,19 @@
 
             <div class="message-panel">
                 <p class="eyebrow">For my favorite person</p>
-                <h2>A note for you</h2>
-                <textarea aria-label="Birthday message"> My second wish for your birthday is that you continue being the amazing person you are. Your kindness, humor, and warmth light up the lives of those around you. Continue being the reason of someone else's smile, and never forget how much you are loved. Happy Birthday, Vasco! 🎉🎂💖</textarea>
+                <h2>A letter for you</h2>
+                <div class="message-text">
+                    <p>My second wish for your birthday is that you continue being the amazing person you are, babi. I hope you never lose the qualities that make you who you are, especially your kindness, humor, and warmth. These are some of the things that make your so wonderful, and I hope you always carry them with you wherever life takes you.</p>
+                    <p>Your kindness has a way of making me feel comfortable and appreciated, even through the simplest things you do. Sometimes, it doesn't take grand gestures to make someone feel better; a little understanding, a thoughtful word, or simply being there can already mean so much. I hope you continue to share that kind of kindness with the people around you, not because you feel obligated to, but because it comes naturally from the person you are.</p>
+                    <p>I also hope you never lose your sense of humor, babi. Keep laughing, keep making people laugh, and keep finding joy in the little things that make life more enjoyable. There's something special about a person who can bring a smile to someone's face, even on an ordinary day. I hope you continue to be that person who makes moments feel lighter and conversations more enjoyable just by being yourself. Never underestimate how much your laughter and humor means to me, even when you don't realize the effect you have on me.</p>
+                    <p>And, of course, I hope you continue to share your warmth with others. May you always have the ability to make people feel welcome, valued, and comfortable around you. I hope you remain someone others can appreciate not just because of waht you do for them, but also because of the person they get to know when they're with you. The way you express yourself, the way you interac with others, and the little things that make up your personality are all part of what makes you unique.</p>
+                    <p>I hope you also rememeber that you don't have to be perfect to be a wonderful person. You are allowed to make mistakes, have moments when you don't know what to do, and experience days when you don't feel like your usual self. Those moments don't take away from the good qualities you have. What matters is that you remain willing to learn, understand others, and keep choosing to be kind. I hope you give yourself the same understanding that you try to the people around you.</p>
+                    <p>Continue being the reason behind someone's smile, babi. Keep sharing your laughter, offering kindness when you can, and making ordinary moments a little more memorable. You may not always notice it, but even the smallest things you do can leave a lasting impression on someone, just like you did to me.</p>
+                    <p>Most importantly, never forget that you are loved and appreciated for who you are. I hope you surround yourself with people who see the good in you, appreciate your genuine qualities, and encourage you to remain true to yourself. You deserve  to be appreciated not only wehen you're making other people happy, but also when you're simply being yourself.</p>
+                    <p>So, Vasco ko, my wish is for you to keep that beautiful part of yourself alive. Keep your kindess, hold on to your humor, and continue sharing your warmth with the people fortunate enough to know you. May you always have the freedom to express who you are without feeling the need to change yourself just to fit what others expect of you</p>
+                    <p>Happy birthday, babi! I hope you never forget how much your presence can mean to the people around you. Keep being the wonderful person that you are, and never stop sharing the little things that make you uniquely you.</p>
+
+                </div>
             </div>
         </section>
 
