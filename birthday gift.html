@@ -282,30 +282,19 @@
             line-height: 1;
         }
 
-        textarea {
+        .message-text {
             display: block;
             width: 100%;
             min-width: 0;
             min-height: 225px;
-            resize: none;
+            margin: 0;
             padding: 18px 19px;
             border: 1px solid rgba(231, 208, 158, .25);
             border-radius: 14px;
-            outline: none;
             background: rgba(255, 248, 233, .055);
             color: #fff8e9;
             font-size: 1rem;
             line-height: 1.8;
-            transition: border-color .2s ease, box-shadow .2s ease;
-        }
-
-        textarea::placeholder {
-            color: rgba(255, 248, 233, .45);
-        }
-
-        textarea:focus {
-            border-color: rgba(231, 208, 158, .7);
-            box-shadow: 0 0 0 3px rgba(231, 208, 158, .1);
         }
 
         .message-hint {
@@ -385,7 +374,7 @@
                 padding: 8px 4px 20px;
             }
 
-            textarea {
+            .message-text {
                 min-height: 190px;
             }
         }
@@ -437,9 +426,25 @@
 
             <div class="message-panel">
                 <p class="eyebrow">For my favorite person</p>
-                <h2>A note for you</h2>
-                <textarea aria-label="Birthday message"> Happy birthday, baba! You deserve the best on your special day and always; so my first wish for you is that you have a wonderful birthday and a year filled with happiness, love, and success. I hope this year brings you closer to your dreams and that you continue to grow and thrive in all aspects of your life. May your birthday be as amazing as you are, and may all your wishes come true!
-                </textarea>
+                <h2>A letter for you</h2>
+                <div class="message-text">
+                    <p>Happy birthday, baba!</p>
+
+                    <p>You deseve the best on your specia day and always. My first wish for you is to have a wonderful birthday filled with happiness, love, and everything that makes you smile. I hope today reminds you of how special  you are and how much you deserve all the beautiful things life has to offer.</p>
+
+                    <p>As you begin another year of your life, I hope it brings you closer to your dreams and gives you more opportunities to grow and succeed. May this year be filled with meaningful moments that will help you become an even better version of yourself. I hope you continue to discover new things, learn from every experience, and grow into the person you aspire to be.</p>
+
+                    <p>I hope you always find the courage and determination to pursue the things you truly want in life. Whatever goals you have set for yourself, may you have the strength to keep working toward them, even when things don't go exactly as planned. I hope you never lose sight of your dreams and always believe in your ability to achieve them. May every effort you make bring you one step closer to the future you've always wanted.</p>
+                
+                    <p>More than anything, I wish you happiness and success in all aspects of your life. May you find fulfillment in the things you work hard for, love in the people around you, and joy in even the simplest moments. I hope you continue to thrive, not only in your achievements but also in your personal growth. May you become more confident in yourself, more certain of what you want, and more proud of the person you're becoming.</p>
+                
+                    <p>I also hope that, along the way, you remember to appreciate how far you've come. Sometimes, when we have so many dreams to chase, we forget to recognize the progress we've already made. So, I hope you give yourself credit for every little achievement and every step forward. You don't always have to have everythhing figured out to be proud of yourself. What's important is that you keep growing, keep learning, and keep moving toward the life you want.</p>
+
+                    <p>Babi, may this new chapter bring you closer to everything your heart desires. I hope you experience a kind of happiness that stays with you, a love that makes life more beautiful, and a success that makes all your hard work worthwhile. May you always have reasons to smile, things to look forward to, and dreams that inspire you to keep going.</p>
+
+                    <p>Once again, happiest birthday to my most favorite person, my Vasco! May your special day be as amazing as you are, and may all your wishes come true. I wish you a beautiful year ahead, filled with love, happiness, growth, and success. You deserve all the good things coming your way, today and always.</p>
+
+                </div>
             </div>
         </section>
 
