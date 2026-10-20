@@ -312,6 +312,31 @@
             font-size: .76rem;
         }
 
+        .page-navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 32px;
+        }
+
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border: 1px solid rgba(231, 208, 158, .4);
+            border-radius: 999px;
+            background: rgba(255, 248, 233, .08);
+            color: #f7e3b6;
+            text-decoration: none;
+            transition: background .2s ease, border-color .2s ease;
+        }
+
+        .page-link:hover,
+        .page-link:focus-visible {
+            border-color: rgba(231, 208, 158, .8);
+            background: rgba(255, 248, 233, .14);
+        }
+
         @keyframes flicker {
             0% { transform: translateX(-50%) rotate(-3deg) scale(.97, 1); }
             35% { transform: translateX(-50%) rotate(2deg) scale(1.02, .98); }
@@ -405,7 +430,35 @@
                 <textarea aria-label="Birthday message"> My second wish for your birthday is that you continue being the amazing person you are. Your kindness, humor, and warmth light up the lives of those around you. Continue being the reason of someone else's smile, and never forget how much you are loved. Happy Birthday, Vasco! 🎉🎂💖</textarea>
             </div>
         </section>
+
+        <nav class="page-navigation" aria-label="Birthday pages">
+            <a class="page-link" href="birthday-page-3.html">Next page <span aria-hidden="true">→</span></a>
+        </nav>
     </main>
+    <script>
+        const welcome = document.getElementById("welcome");
+        const birthdayCard = document.getElementById("birthday-card");
+
+        function openBirthdayCard() {
+            welcome.classList.add("is-hidden");
+            birthdayCard.inert = false;
+            birthdayCard.removeAttribute("aria-hidden");
+            birthdayCard.classList.add("is-open");
+            birthdayCard.focus();
+        }
+
+        function handleWelcomeKeydown(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openBirthdayCard();
+            }
+        }
+
+        welcome.addEventListener("click", openBirthdayCard);
+        welcome.addEventListener("keydown", handleWelcomeKeydown);
+        welcome.setAttribute("tabindex", "0");
+
+    </script>
 
 </body>
 </html>
