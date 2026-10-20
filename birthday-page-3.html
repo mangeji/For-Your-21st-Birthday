@@ -281,29 +281,26 @@
             line-height: 1;
         }
 
-        textarea {
+        .message-text {
             display: block;
             width: 100%;
             min-height: 225px;
-            resize: none;
+            margin: 0;
             padding: 18px 19px;
             border: 1px solid rgba(231, 208, 158, .25);
             border-radius: 14px;
-            outline: none;
             background: rgba(255, 248, 233, .055);
             color: #fff8e9;
             font-size: .98rem;
             line-height: 1.8;
-            transition: border-color .2s ease, box-shadow .2s ease;
         }
 
-        textarea::placeholder {
-            color: rgba(255, 248, 233, .45);
+        .message-text p {
+            margin: 0;
         }
 
-        textarea:focus {
-            border-color: rgba(231, 208, 158, .7);
-            box-shadow: 0 0 0 3px rgba(231, 208, 158, .1);
+        .message-text p + p {
+            margin-top: 1em;
         }
 
         .message-hint {
@@ -382,7 +379,7 @@
                 padding: 8px 4px 20px;
             }
 
-            textarea {
+            .message-text {
                 min-height: 190px;
             }
         }
@@ -426,8 +423,19 @@
 
             <div class="message-panel">
                 <p class="eyebrow">For my favorite person</p>
-                <h2>A note for you</h2>
-                <textarea aria-label="Birthday message"> My third wish for your birthday is that you continue to inspire others with your incredible spirit. Your presence in our lives is a true gift, and I am grateful for every moment we share. Always remember that the people that are close to your heart is always proud of what you've becoming. We are always cheering for your bright future and we will always believe that you can achieve anything. I feel so lucky to watch you become the person you're meant to be. Thank you for being such an inspiration to me and everyone around you just by being yourself. Keep shining as bright as you do, the world is so much better with you in it.</textarea>
+                <h2>A letter for you</h2>
+                <div class="message-text">
+                    <p>My third wish for your birthday is that you continue to inspire others with your incredible spirit. I hope you never underestimate the impact you have on the people aroud you and how your journey can become a source of inspiration to others.</p>
+                    <p>Your presence in our lives is a gift that I hope you learn to appreciate just as much as we do. I am grateful for every moments we've shared, for the memories we've created, and for the opportunity to witness different parts of who you are. Every experience gives me another reason to understand you better, and I'm thankful that I've had the chance to know you beyond the things that people can see on the surface.</p>
+                    <p> I hope you always remember that the people who hold you close to their heart are proud of what you've becoming. Even when you feel uncertain about your direction or question whether you're doing enough, there will always be people who see your potential and believe in what you're capable of. You don't have to have everything figured out right away, and you don't need to have all the answers to prove that you're making progres. Your journey is your own, and you deserve the time and space to figure things out at your own pace.</p>
+                    <p>Please know that the people who genuinely care about you will always be cheering for you. We look forward to seeing you discover more of your abilities, explore the opportunities ahead of you, and accomplish the things you've been working toward. We believe in the future you're building for yourself, and we hope you continue to believe in it, too. There may be moments when the path ahead feels uncertain, but I hope you never allow those moments to make you forget how much potential you carry within yourself.</p>
+                    <p>One of the things I'm most grateful for is being able to witness your grow into the person you're meant to be. There's something beautiful about seeing you gradually discover yourself, develop you own perspective, and learn more about what you want in your life. I hope that as the years pass, you become more comfortable with who you are and more confident in the choices you make. I hope you build a life that reflects your own dreams and values, rather than one shaped entirely by the expectations of others.</p>
+                    <p>And babi, I hope you never feel that you have to do extraordinary things all the time to become someone worth looking up to. You don't have to be the strongest person in every situation or always know what to do. Even your willingness to learn, grow, and keep discovering who you are an remind others that becoming a better version of yourself is a continuous journey.</p>
+                    <p>Thank you for being someone who has made an impact on my life simply by being yourself. I'm grateful for the things I've learned from knowing you and for the chance to see the person behind all the different experiences you've had. I hope you continue to discover more reasons to be proud of yourself, and I hope you recognize the value you bring into the lives of the people who care about you.</p>
+                    <p>As you continue writing your own story, I hope you give yourself permission to dream big, take chances, and explore possibilities you may not have imagined before. May you find the courage to pursue what matters to you and the confidence to trust your own abilities. I hope you never feel limited by who who you are today because there still so much roof for you to learn, experience, and become.</p>
+                    <p>Keep shining in you own way, baba. Never feel that you need to be like anyone else to make a difference. The world is already a better place because you are part of it, and I hope life gives you countless opportunities to discover just how much you can contribute to it. I'm excited for all the things that still await you, and I'll always be wishing you the best as you continue becoming the person you're meant to be.</p>
+
+                </div>
             </div>
         </section>
 
