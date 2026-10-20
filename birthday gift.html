@@ -21,7 +21,6 @@
         }
 
         body {
-            min-width: 320px;
             min-height: 100vh;
             margin: 0;
             background:
@@ -86,7 +85,8 @@
         }
 
         main {
-            width: min(100% - 36px, 1000px);
+            width: calc(100% - 36px);
+            max-width: 1000px;
             margin: 0 auto;
             padding: 36px 0 48px;
             opacity: 0;
@@ -105,7 +105,7 @@
             gap: 12px 24px;
             align-items: center;
             min-width: 0;
-            padding: 20px 24px;
+            padding: clamp(14px, 4vw, 24px);
             border: 1px solid rgba(231, 208, 158, .2);
             border-radius: 18px;
             background: rgba(255, 248, 233, .06);
@@ -147,7 +147,7 @@
 
         .birthday-layout {
             display: grid;
-            grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr);
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
             gap: clamp(28px, 6vw, 70px);
             align-items: center;
             margin-top: clamp(38px, 7vw, 72px);
@@ -264,6 +264,7 @@
         }
 
         .message-panel {
+            min-width: 0;
             padding: 12px 0;
         }
 
@@ -284,6 +285,7 @@
         textarea {
             display: block;
             width: 100%;
+            min-width: 0;
             min-height: 225px;
             resize: none;
             padding: 18px 19px;
@@ -292,7 +294,7 @@
             outline: none;
             background: rgba(255, 248, 233, .055);
             color: #fff8e9;
-            font-size: .98rem;
+            font-size: 1rem;
             line-height: 1.8;
             transition: border-color .2s ease, box-shadow .2s ease;
         }
@@ -349,9 +351,10 @@
             to { filter: drop-shadow(0 0 30px rgba(247, 227, 182, .22)); }
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
             main {
-                width: min(100% - 28px, 480px);
+                width: calc(100% - 28px);
+                max-width: 480px;
                 padding-top: 18px;
             }
 
