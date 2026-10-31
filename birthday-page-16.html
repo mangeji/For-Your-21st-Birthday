@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#18251d">
+    <title>Happiest Birthday, Vasco!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: "DM Sans", sans-serif;
+            background: #18251d;
+            color: #fff8e9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(91, 111, 67, .38), transparent 54%),
+                #18251d;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .welcome {
+            position: fixed;
+            z-index: 2;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background:
+                radial-gradient(ellipse at center, rgba(65, 83, 52, .72), rgba(18, 29, 23, .97) 70%),
+                #18251d;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity .8s ease, visibility .8s ease;
+        }
+
+        .welcome.is-hidden {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            animation: welcome-glow 3s ease-in-out infinite alternate;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: #dec795;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+        }
+
+        .welcome h1 {
+            margin: 0;
+            color: #f7e3b6;
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(3.7rem, 11vw, 7.5rem);
+            font-weight: 400;
+            line-height: 1.05;
+        }
+
+        .welcome-hint {
+            margin: 28px 0 0;
+            color: rgba(255, 248, 233, .76);
+            font-size: .9rem;
+            letter-spacing: .12em;
+        }
+
+        main {
+            width: calc(100% - 36px);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 36px 0 48px;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .8s ease .2s, transform .8s ease .2s;
+        }
+
+        main.is-open {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .music-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px 24px;
+            align-items: center;
+            min-width: 0;
+            padding: clamp(14px, 4vw, 24px);
+            border: 1px solid rgba(231, 208, 158, .2);
+            border-radius: 18px;
+            background: rgba(255, 248, 233, .06);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, .16);
+        }
+
+        .music-copy h2 {
+            margin: 0 0 4px;
+            color: #f7e3b6;
+            font-family: "Playfair Display", serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .music-copy p {
+            margin: 0;
+            color: rgba(255, 248, 233, .65);
+            font-size: .82rem;
+        }
+
+        .music-player {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background: #101813;
+        }
+
+        .music-player-wrap {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            margin-top: 4px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+        }
+
+        .birthday-layout {
+            display: grid;
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+            gap: clamp(28px, 6vw, 70px);
+            align-items: center;
+            margin-top: clamp(38px, 7vw, 72px);
+        }
+
+        .candle-scene {
+            position: relative;
+            display: grid;
+            min-height: 370px;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(231, 208, 158, .12);
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at 50% 63%, rgba(255, 174, 70, .14), transparent 34%),
+                linear-gradient(155deg, rgba(255, 248, 233, .045), rgba(255, 248, 233, .01));
+        }
+
+        .candle-scene::before {
+            position: absolute;
+            right: 12%;
+            bottom: 24px;
+            left: 12%;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, .25);
+            content: "";
+            filter: blur(10px);
+        }
+
+        .candle {
+            position: relative;
+            width: 82px;
+            height: 205px;
+            margin-top: 66px;
+            border-radius: 13px 13px 9px 9px;
+            background:
+                linear-gradient(90deg, #a8754e 0%, #f2d5a4 18%, #fff0ce 47%, #e9c18a 77%, #9c6948 100%);
+            box-shadow:
+                inset 8px 0 12px rgba(255, 255, 255, .35),
+                inset -9px 0 13px rgba(84, 45, 24, .2),
+                0 18px 25px rgba(0, 0, 0, .25),
+                0 0 65px rgba(255, 167, 66, .15);
+        }
+
+        .candle::before {
+            position: absolute;
+            top: -5px;
+            right: 0;
+            left: 0;
+            height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #c39162, #fff0ce 45%, #d4a576);
+            content: "";
+        }
+
+        .candle::after {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            width: 3px;
+            height: 21px;
+            border-radius: 3px;
+            background: #493328;
+            content: "";
+            transform: translateX(-50%);
+        }
+
+        .flame {
+            position: absolute;
+            z-index: 1;
+            top: -68px;
+            left: 50%;
+            width: 27px;
+            height: 54px;
+            border-radius: 55% 45% 52% 48% / 65% 65% 35% 35%;
+            background: radial-gradient(ellipse at 50% 70%, #fff9bf 0 11%, #ffc44e 40%, #fa742c 75%, rgba(239, 78, 35, .35) 100%);
+            box-shadow: 0 0 20px 8px rgba(255, 162, 54, .42), 0 0 70px 22px rgba(255, 145, 43, .2);
+            transform: translateX(-50%);
+            transform-origin: 50% 100%;
+            animation: flicker 1.8s ease-in-out infinite alternate;
+        }
+
+        .wax-drip {
+            position: absolute;
+            top: 2px;
+            width: 13px;
+            border-radius: 0 0 9px 9px;
+            background: linear-gradient(90deg, #dfb57f, #fff0ce 65%, #e9c18a);
+            box-shadow: 1px 3px 4px rgba(96, 56, 34, .12);
+        }
+
+        .wax-drip-one {
+            left: 16px;
+            height: 35px;
+        }
+
+        .wax-drip-two {
+            right: 14px;
+            height: 24px;
+        }
+
+        .candle-caption {
+            position: absolute;
+            right: 0;
+            bottom: 24px;
+            left: 0;
+            margin: 0;
+            color: rgba(255, 248, 233, .55);
+            font-family: "Playfair Display", serif;
+            font-size: .9rem;
+            letter-spacing: .08em;
+            text-align: center;
+        }
+
+        .message-panel {
+            min-width: 0;
+            padding: 12px 0;
+        }
+
+        .message-panel .eyebrow {
+            margin-bottom: 10px;
+            color: #d6b97c;
+        }
+
+        .message-panel h2 {
+            margin: 0 0 22px;
+            color: #f7e3b6;
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(2.8rem, 6vw, 4.6rem);
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .message-text {
+            display: block;
+            width: 100%;
+            min-height: 225px;
+            margin: 0;
+            padding: 18px 19px;
+            border: 1px solid rgba(231, 208, 158, .25);
+            border-radius: 14px;
+            background: rgba(255, 248, 233, .055);
+            color: #fff8e9;
+            font-size: .98rem;
+            line-height: 1.8;
+        }
+
+        .message-text p {
+            margin: 0;
+        }
+
+        .message-text p + p {
+            margin-top: 1em;
+        }
+
+        .message-hint {
+            margin: 10px 0 0;
+            color: rgba(255, 248, 233, .48);
+            font-size: .76rem;
+        }
+
+        .page-navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 32px;
+        }
+
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border: 1px solid rgba(231, 208, 158, .4);
+            border-radius: 999px;
+            background: rgba(255, 248, 233, .08);
+            color: #f7e3b6;
+            text-decoration: none;
+            transition: background .2s ease, border-color .2s ease;
+        }
+
+        .page-link:hover,
+        .page-link:focus-visible {
+            border-color: rgba(231, 208, 158, .8);
+            background: rgba(255, 248, 233, .14);
+        }
+
+        .page-complete {
+            margin: 0;
+            padding: 12px 18px;
+            border: 1px solid rgba(231, 208, 158, .4);
+            border-radius: 999px;
+            background: rgba(255, 248, 233, .08);
+            color: #f7e3b6;
+            text-align: center;
+        }
+        @keyframes flicker {
+            0% { transform: translateX(-50%) rotate(-3deg) scale(.97, 1); }
+            35% { transform: translateX(-50%) rotate(2deg) scale(1.02, .98); }
+            70% { transform: translateX(-50%) rotate(-1deg) scale(.98, 1.03); }
+            100% { transform: translateX(-50%) rotate(3deg) scale(1.01, .97); }
+        }
+
+        @keyframes welcome-glow {
+            from { filter: drop-shadow(0 0 12px rgba(247, 227, 182, .08)); }
+            to { filter: drop-shadow(0 0 30px rgba(247, 227, 182, .22)); }
+        }
+
+        @media (max-width: 700px) {
+            main {
+                width: calc(100% - 28px);
+                max-width: 480px;
+                padding-top: 18px;
+            }
+
+            .music-card {
+                grid-template-columns: 1fr;
+                padding: 18px;
+            }
+
+            .music-actions {
+                flex-wrap: wrap;
+            }
+
+            .birthday-layout {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-top: 32px;
+            }
+
+            .candle-scene {
+                min-height: 300px;
+            }
+
+            .candle {
+                transform: scale(.86);
+            }
+
+            .message-panel {
+                padding: 8px 4px 20px;
+            }
+
+            .message-text {
+                min-height: 190px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="is-open" id="birthday-card" aria-label="Birthday card">
+        <section class="music-card" aria-label="Birthday music">
+            <div class="music-copy">
+                <h2>A song for your special day</h2>
+            </div>
+            <div class="music-player-wrap">
+                <iframe
+                    class="music-player"
+                    src="https://www.youtube.com/embed/-iDlFGVWeDI?si=9rNEwpiXVUOla6W8"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="birthday-layout">
+            <div class="candle-scene" role="img" aria-label="A lit, flickering birthday candle">
+                <div class="candle">
+                    <span class="flame"></span>
+                    <span class="wax-drip wax-drip-one"></span>
+                    <span class="wax-drip wax-drip-two"></span>
+                </div>
+                <p class="candle-caption">Make a wish</p>
+            </div>
+
+            <div class="message-panel">
+                <p class="eyebrow">For my favorite person</p>
+                <h2>A note for you</h2>
+                <div class="message-text">
+                    <p>Baba,</p>
+                    <p>One thing I really admire about you is how much the people in your life mean to you. I know you have your own way of showing it, but I think the connections you make become a part of you in ways you might not always notice. The people you spend time with, the memories you make with them, and the experiences you share all become pieces of your life that you get to carry with you. And I think it's special that you have the capacity to let people mean that much to you.</p>
+                    <p>I know you'll meet different people, babi. Some will become your closest friends, some will teach you things about yourself that you didn't know before, and some will come into your life unexpectedly and end up meaning more to you than you ever imagined. But I also know that not everyone will stay. Some friendships might grow distant, some people might become strangers again, and some connections you thought would last forever might eventually become memories. I know that can be a difficult thing to accept, especially when you've genuinely grown attached to someone.</p>
+                    <p>But I don't want the possibility of losing people make you afraid of getting close to them. You don't have to hold back from making memories just because you can't guarantee how long someone will be around. If someone makes you laugh, teaches you something, helps you through a difficult time, or simply makes a certain part of your life happier, then that connection has already given you something worth keeping. Not every person has to stay forever to have mattered. Sometimes, the value of knowing someone isn't measured by how long they're in your life, but by what you got to experience becauese they were in it.</p>
+                    <p>And if you ever find yourself missing people who are not longer as close to you, I hope you can look back without feeling that you've lost everything they meant to you. It's okaky to miss how things used to be. It's okay to wish some people had stayed longer. You can acknowledge that you would've wanted a different ending while still being thankful for the memories you got to make. Growing up means learning that some things can be beautiful even when they don't last, and that people can remain a meaningful part of your story without being part of your everyday life anymore.</p>
+                    <p>Babi, I want you to enjoy the people you have around you now. Don't let the thought that things might change someday keep you from appreciating what's happening today. Spend time with your friends, make memories with your family, and allow yourself to be present with the people who make this chapter of your life what it is. Someday, even the ordinary moments you're living now might become the ones you look back on most fondly.</p>
+                    <p>Happy birthday, baba! I know you'll keep meeting people and building connections as life takes you through different places and experiences. I hope you never lose your ability to value those connections, even when they don't turn out the way you expected. And when you look back on your life years from now, I hope you'll have so many people to remember fondly, so many moments that still make you smile, and the comfort of knowing that even the people who didn't stay forever were still part of a life you got to live and love fully.</p>
+                </div>
+            </div>
+        </section>
+        
+          <nav class="page-navigation" aria-label="Birthday pages">
+            <a class="page-link" href="birthday-page-17.html">Next page <span aria-hidden="true">→</span></a>
+        </nav>
+    </main>
+
+</body>
+</html>
